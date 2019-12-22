@@ -5,7 +5,7 @@ const Controller = require('egg').Controller;
 class ProductController extends Controller {
   async index() {
     const { ctx } = this;
-    ctx.body = 'hello, egg';
+    ctx.body = 'youxiu, egg';
   }
 }
 
