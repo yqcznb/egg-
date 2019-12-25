@@ -66,6 +66,10 @@ export default {
 .left .right {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: space-between;
+  margin-left: 15px;
+}
+.left .right .title {
+  font-size: 18px;
 }
 </style>
