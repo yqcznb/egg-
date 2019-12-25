@@ -72,4 +72,8 @@ export default {
 .left .right .title {
   font-size: 18px;
 }
+.left .right .create-time {
+  font-size: 12px;
+  color: #9c9e9c;
+}
 </style>
