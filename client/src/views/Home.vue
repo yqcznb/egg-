@@ -38,17 +38,21 @@ export default {
     onLoad() {
       // 异步更新数据
       setTimeout(() => {
-        for (let i = 0; i < 10; i++) {
-          this.list.push(this.list.length + 1);
-        }
         // 加载状态结束
         this.loading = false;
-
-        // 数据全部加载完成
-        if (this.list.length >= 40) {
-          this.finished = true;
-        }
-      }, 500);
+        this.finished = true;
+        this.list = [
+          {
+            id:1,
+            "title": "11",
+            "img": "https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=3134588255,1963050315&fm=26&gp=0.jpg",
+            "summary": '222',
+            "content": '333',
+            "createTime": '2019-12-25 08:53:07'
+          }
+        ]
+      
+      }, 1000);
     }
   }
 };
