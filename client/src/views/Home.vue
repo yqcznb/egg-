@@ -10,7 +10,15 @@
       v-for="item in list"
       :key="item"
     >
-    <div class="list"></div>
+      <div class="list">
+        <div class="left">
+          <img :src="item.img" alt="">
+        </div>
+        <div class="rig">
+          <div class="title">{{item.title}}</div>
+          <div class="create-time">{{item.createTime}}</div>
+        </div>
+      </div>
     </van-cell>
     </van-list>
   </div>
@@ -45,3 +53,19 @@ export default {
   }
 };
 </script>
+<style scoped>
+.list {
+  display: flex;
+  flex-direction: row;
+}
+.list .left, img {
+  width: 150px;
+  height: 100px;
+  border-radius: 10px;
+}
+.left .right {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+</style>
