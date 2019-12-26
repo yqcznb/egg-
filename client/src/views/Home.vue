@@ -8,7 +8,8 @@
     >
     <van-cell
       v-for="item in list"
-      :key="item"
+      :key="item.id"
+      @click="handelClick(item.id)"
     >
       <div class="list">
         <div class="left">
@@ -35,6 +36,14 @@ export default {
   },
 
   methods: {
+    handelClick(id){
+      this.$router.push({
+        path:"/detail",
+        query:{
+          id
+        }
+      })
+    },
     onLoad() {
       // 异步更新数据
       setTimeout(() => {
