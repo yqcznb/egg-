@@ -12,9 +12,9 @@
     >
       <div class="list">
         <div class="left">
-          <img :src="item.img" alt="">
+          <img :src="item.img" alt="图片">
         </div>
-        <div class="rig">
+        <div class="right">
           <div class="title">{{item.title}}</div>
           <div class="create-time">{{item.createTime}}</div>
         </div>
@@ -44,15 +44,30 @@ export default {
         this.list = [
           {
             id:1,
-            "title": "11",
+            title: "111111111 111111111111111",
+            "img": "https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=3134588255,1963050315&fm=26&gp=0.jpg",
+            "summary": '222',
+            "content": '333',
+            "createTime": '2019-12-25 08:53:07'
+          },
+           {
+            id:2,
+            "title": "22",
+            "img": "https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=3134588255,1963050315&fm=26&gp=0.jpg",
+            "summary": '222',
+            "content": '333',
+            "createTime": '2019-12-25 08:53:07'
+          },
+           {
+            id:3,
+            "title": "33",
             "img": "https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=3134588255,1963050315&fm=26&gp=0.jpg",
             "summary": '222',
             "content": '333',
             "createTime": '2019-12-25 08:53:07'
           }
         ]
-      
-      }, 1000);
+      }, 500);
     }
   }
 };
@@ -67,16 +82,16 @@ export default {
   height: 100px;
   border-radius: 10px;
 }
-.left .right {
+.list .right {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   margin-left: 15px;
 }
-.left .right .title {
+.list .right .title {
   font-size: 18px;
 }
-.left .right .create-time {
+.list .right .create-time {
   font-size: 12px;
   color: #9c9e9c;
 }
