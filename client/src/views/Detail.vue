@@ -7,19 +7,33 @@
   </div>
 </template>
 <script>
+import { Toast } from 'vant';
+import moment from 'moment';
 export default {
   name: " detail",
   data(){
     return {
       detail: {
-        id:1,
-        title: "111111111 111111111111111",
-        "img": "https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=3134588255,1963050315&fm=26&gp=0.jpg",
-        "summary": '222',
-        "content": '333',
-        "createTime": '2019-12-25 08:53:07'
+        id:undefined,
+        title: undefined,
+        img: undefined,
+        summary: undefined,
+        content: undefined,
+        createTime: undefined
       }
     }
+  },
+  created(){
+    fetch('/article/detail/'+this.$route.query.id)
+        .then(res=>res.json())
+        .then(res=>{
+          if(res.status == 200){
+            this.detail = res.data;
+            this.detail.createTime = res.data.createTime ? moment(res.data.createTime).format('YYYY-MM-DD HH:mm:ss') : undefined;  
+          }else{
+            this.$toast.fail(res.errMsg)
+          }
+        })
   }
 };
 </script>

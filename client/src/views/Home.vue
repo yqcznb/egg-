@@ -26,6 +26,7 @@
 </template>
 <script>
 import { Toast } from 'vant';
+import moment from 'moment';
 export default {
   name: " home",
   data() {
@@ -52,9 +53,14 @@ export default {
           if(res.status == 200){
             this.loading = false;
             this.finished = true;
-            this.list = res.data;
+            this.list = res.data.map(item=>{
+              if(item.createTime){
+                item.createTime = moment(item.createTime).format('YYYY-MM-DD HH:mm:ss');
+              }
+              return item;
+            });
           }else{
-            Toast.fail(res.errMsg)
+            this.$toast.fail(res.errMsg)
           }
         })
       
