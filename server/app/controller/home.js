@@ -4,13 +4,11 @@ const Controller = require('egg').Controller;
 
 class HomeController extends Controller {
   async index() {
-    const { ctx } = this;
-    const res = await ctx.service.product.index();
-    // ctx.body = res;
-    await ctx.render('index.html', {
-      res,
-      lists: ['a', 'b', 'c']
-    });
+    const { ctx , app } = this;
+    const res = await app.mysql.select('article');
+    console.log(res);
+    ctx.body = "11";
+
   }
 }
 
