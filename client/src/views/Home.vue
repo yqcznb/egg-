@@ -25,6 +25,7 @@
   </div>
 </template>
 <script>
+import { Toast } from 'vant';
 export default {
   name: " home",
   data() {
@@ -45,38 +46,19 @@ export default {
       })
     },
     onLoad() {
-      // 异步更新数据
-      setTimeout(() => {
-        // 加载状态结束
-        this.loading = false;
-        this.finished = true;
-        this.list = [
-          {
-            id:1,
-            title: "111111111 111111111111111",
-            "img": "https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=3134588255,1963050315&fm=26&gp=0.jpg",
-            "summary": '222',
-            "content": '333',
-            "createTime": '2019-12-25 08:53:07'
-          },
-           {
-            id:2,
-            "title": "22",
-            "img": "https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=3134588255,1963050315&fm=26&gp=0.jpg",
-            "summary": '222',
-            "content": '333',
-            "createTime": '2019-12-25 08:53:07'
-          },
-           {
-            id:3,
-            "title": "33",
-            "img": "https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=3134588255,1963050315&fm=26&gp=0.jpg",
-            "summary": '222',
-            "content": '333',
-            "createTime": '2019-12-25 08:53:07'
+      fetch('/article/lists')
+        .then(res=>res.json())
+        .then(res=>{
+          if(res.status == 200){
+            this.loading = false;
+            this.finished = true;
+            this.list = res.data;
+          }else{
+            Toast.fail(res.errMsg)
           }
-        ]
-      }, 500);
+        })
+      
+     
     }
   }
 };
