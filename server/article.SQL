@@ -12,7 +12,7 @@ create table article(
     primary key(id)
 )engine=InnoDB auto_increment=1 comment '文章表';
 
-insert into article(img, title, summary, content, createTime)
+insert into article(title, img, summary, content, createTime)
 values('编程必备基础知识 操作系统','https://ss0.bdstatic.com/
 70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=3960281818,3530045970&fm=26&gp=0.jpg',
 '11111111111111111111111','222222222222222222222222','2019-12-26 10:36:07');
