@@ -34,11 +34,11 @@ export default {
       const data = {
         title: this.title,
         summary: this.summary,
-        comtent: this.content,
+        content: this.content,
         img: this.img
       };
       fetch('/article/create', {
-        method: 'post',
+        method: 'POST',
         headers: {
           'Content-type': 'application/json'
         },
@@ -51,6 +51,8 @@ export default {
           this.$router.push('/')
         }else{
            this.$toast.fail(res.errMsg)
+           console.log(res);
+           console.log(data);
         }
       })
     }
